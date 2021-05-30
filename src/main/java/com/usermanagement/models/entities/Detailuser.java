@@ -2,7 +2,6 @@ package com.usermanagement.models.entities;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.time.Instant;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,12 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-
 @Entity
 @Table(name = "detail_user")
-public class Detailuser implements Serializable{
+public class Detailuser extends BaseEnities<String> implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -49,14 +45,6 @@ public class Detailuser implements Serializable{
     @Column(name = "email", unique = true)
     private String email;
     
-    @CreatedDate
-    @Column(name = "created_at")
-    private Instant createdDate;
-
-    @LastModifiedDate
-    @Column(name = "updated_at")
-    private Instant updatedDate;
-
     public Long getId() {
         return id;
     }
@@ -128,23 +116,6 @@ public class Detailuser implements Serializable{
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public Instant getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Instant createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public Instant getUpdatedDate() {
-        return updatedDate;
-    }
-
-    public void setUpdatedDate(Instant updatedDate) {
-        this.updatedDate = updatedDate;
-    }
-
     
 
 }
